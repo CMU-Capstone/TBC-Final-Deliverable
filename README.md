@@ -68,3 +68,13 @@ All services will redirect you to their respective Swagger UI documentation page
 
 ## Services
 Refer to the all service documentation in the documents folder of this project
+
+## Raw Code
+The raw code are also available within the project. All projects are <b>Spring Boot Projects</b> with <b>Maven</b> dependency management.
+
+### Github_Scanner, Slack_Analyser_Springboot and Demo - Spring Boot Projects
+We advise that you use the following IDEs to view the project:
+1. Intellij
+2. Eclipse
+
+### Demo Frontend - React Native
