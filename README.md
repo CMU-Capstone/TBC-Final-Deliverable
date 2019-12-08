@@ -66,6 +66,9 @@ The quickest way to tell if the services are running is to go to their respectiv
 
 All services will redirect you to their respective Swagger UI documentation pages
 
+* Demo_frontend: `8083`
+This is the demo frontend - built off a open source template [material-dashboard-react](https://github.com/creativetimofficial/material-dashboard-react)
+
 ## Services
 Refer to the all service documentation in the `Documents/API Manuals` folder of this project
 
@@ -77,4 +80,5 @@ We advise that you use the following IDEs to view the project:
 1. Intellij
 2. Eclipse
 
-### Demo Frontend - React Native
+### Demo Frontend - Nodejs & React
+
