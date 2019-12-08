@@ -64,7 +64,7 @@ The quickest way to tell if the services are running is to go to their respectiv
 * Slack Scanner: `8081`
 * Demo: `8080`
 
-All services will redirect you to their respective Swagger UI documentation pages
+All services above will redirect you to their respective Swagger UI documentation pages
 
 * Demo_frontend: `8083`
 This is the demo frontend - built off a open source template [material-dashboard-react](https://github.com/creativetimofficial/material-dashboard-react)
