@@ -43,23 +43,23 @@ This service will combine the slack and git scanners search results base on emai
 ```
 <base>/getQuestionsByProblems
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Input
+#### Input:
 Parameters:
 1. `industry` - The industry that you are interested in
 2. `problem` - The problem that you are interested in
 
 Sample Query: `<base>/getQuestionsByProblems?industry=<industry>&problem=<problem>`
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 {
@@ -81,23 +81,23 @@ This service will count all the different technology used within the given searc
 ```
 <base>/getTechByProblems
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Input
+#### Input:
 Parameters:
 1. `industry` - The industry that you are interested in
 2. `problem` - The problem that you are interested in
 
 Sample Query: `<base>/getTechByProblems?industry=<industry>&problem=<problem>`
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 {
@@ -116,19 +116,19 @@ This service get all hackathons within the mongodb.
 ```
 <base>/getAllHackathons
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 [
@@ -146,19 +146,19 @@ This service get all the top 5 industries with the most projects within TBC's ha
 ```
 <base>/getTop5Industry
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 {
@@ -176,19 +176,19 @@ This service get all the top 5 technology being used within TBC's hackathons.
 ```
 <base>/getTop5Technology
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 {
@@ -206,19 +206,19 @@ This service get all the top 5 problems being solved within TBC's hackathons.
 ```
 <base>/topFiveProblems
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 {
@@ -236,19 +236,19 @@ This service gets the total number of projects.
 ```
 <base>/getTotalNumberOfProjects
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 44
@@ -261,19 +261,19 @@ This service gets the total number of unique technology used.
 ```
 <base>/getUniqueTechCount
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 4
@@ -286,19 +286,19 @@ This service gets the total number of unique unsers (identified by email in both
 ```
 <base>/getUniqueUserCount
 ```
-#### Method
+#### Method:
 GET
 
-#### Headers
+#### Headers:
 ```
 Origin: *
 Content-Type: application/json
 ```
 
-#### Inputs
+#### Inputs:
 No input requried
 
-#### Output
+#### Output:
 Responds Body (sample):
 ```
 7
