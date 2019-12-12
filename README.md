@@ -101,3 +101,7 @@ We advise that you use the following IDEs to view the project:
 
 ### Demo Frontend - Nodejs & React
 
+## Documentation
+We have also provided more detailed documentations within the documents folder in this repository.<br>
+Our project report and presentation slides are also found within this folder
+
