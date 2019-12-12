@@ -17,9 +17,20 @@ public class DemoController {
     MongoController mongoController;
 
     @CrossOrigin(origins = "*")
+    @GetMapping("/getTop5Industry")
+    public LinkedHashMap getTop5Industry(){
+        return mongoController.getTop5Industry();
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/getTop5Technology")
+    public LinkedHashMap getTop5Technology(){
+        return mongoController.getTop5Technology();
+    }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/topFiveProblems")
     public LinkedHashMap getTop5Problems(){
-        // Just need to return the size of the search from gitApi search
         return mongoController.getTop5Problems();
     }
 

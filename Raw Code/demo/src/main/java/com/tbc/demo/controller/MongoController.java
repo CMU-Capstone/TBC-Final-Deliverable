@@ -67,6 +67,10 @@ public class MongoController {
 		return tech;
 	}
 
+	/**
+	 * This method will get the top 5 technologies from all hackathons straight from mongodb
+	 * @return A LinkedHashMap of the top 5 results if they exist
+	 */
 	public LinkedHashMap<String, Integer> getTop5Problems(){
 		MongoDatabase gitDB = mongoClient.getDatabase("hackthons");
 		MongoIterable<String> collections = gitDB.listCollectionNames();
@@ -86,12 +90,62 @@ public class MongoController {
 			}
 		}
 
-		return getTop5FromMap(counts);
+		return getTop5FromMap(counts, "Problems");
 	}
 
-	private LinkedHashMap<String, Integer> getTop5FromMap(Map<String, Integer> map){
+	public LinkedHashMap<String, Integer> getTop5Technology(){
+		MongoDatabase gitDB = mongoClient.getDatabase("hackthons");
+		MongoIterable<String> collections = gitDB.listCollectionNames();
+		Bson unwind = Aggregates.unwind("$technology");
+		Bson sortByCount = Aggregates.sortByCount("$technology");
+		List<Bson> pipeline = Arrays.asList(unwind, sortByCount);
+
+		HashMap<String, Integer> counts = new HashMap<>();
+
+		for (String collection : collections){
+			MongoCursor<Document> solutions = gitDB.getCollection(collection).aggregate(pipeline).cursor();
+			while(solutions.hasNext()){
+				Document current = solutions.next();
+				Integer i = counts.get(current.getString("_id"));
+				if (i == null) i = 0;
+				counts.put(current.getString("_id"), ++i);
+			}
+		}
+
+		return getTop5FromMap(counts, "Technology");
+	}
+
+	public LinkedHashMap<String, Integer> getTop5Industry(){
+		MongoDatabase gitDB = mongoClient.getDatabase("hackthons");
+		MongoIterable<String> collections = gitDB.listCollectionNames();
+		Bson unwind = Aggregates.unwind("$industry");
+		Bson sortByCount = Aggregates.sortByCount("$industry");
+		List<Bson> pipeline = Arrays.asList(unwind, sortByCount);
+
+		HashMap<String, Integer> counts = new HashMap<>();
+
+		for (String collection : collections){
+			MongoCursor<Document> solutions = gitDB.getCollection(collection).aggregate(pipeline).cursor();
+			while(solutions.hasNext()){
+				Document current = solutions.next();
+				Integer i = counts.get(current.getString("_id"));
+				if (i == null) i = 0;
+				counts.put(current.getString("_id"), ++i);
+			}
+		}
+
+		return getTop5FromMap(counts, "Industries");
+	}
+
+	private LinkedHashMap<String, Integer> getTop5FromMap(Map<String, Integer> map, String searchTerm){
+		LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
 		Set<Map.Entry<String, Integer>> entries = map.entrySet();
-		System.out.println("Size  " + entries.size());
+
+		// Handles an empty input set and returns message to display on front end
+		if (entries.size() == 0){
+			linkedHashMap.put("No " + searchTerm + " found.", 0);
+			return linkedHashMap;
+		}
 		Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String,Integer>>() {
 
 			@Override
@@ -104,11 +158,10 @@ public class MongoController {
 
 		entireList.sort(valueComparator);
 
-		LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-
 		int i = 0;
-		while (i < 5 && i < entireList.size()){
-			linkedHashMap.put(entireList.get(i).getKey(), entireList.get(i++).getValue());
+		while (i < 5 &&  i < entireList.size()){
+			linkedHashMap.put(entireList.get(i).getKey(), entireList.get(i).getValue());
+			i++;
 		}
 		return linkedHashMap;
 	}
