@@ -56,6 +56,7 @@ Docker-Compose
 Due to the inclusion of the React based frontend code please follow the following instruction to ensure that the frontend will run correctly:
 
 #### Edit the docker-compose.yaml file
+![docker-compose](https://raw.githubusercontent.com/CMU-Capstone/TBC-Final-Deliverable/master/Documents/images/docker-compose.PNG)
 Within the docker-compose.yaml file, you will have to change 3 urls to ensure that frontend works.
 ```
 REACT_APP_GIT_BASE=http://<server ip>:8082
