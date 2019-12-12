@@ -39,12 +39,31 @@ Docker-Compose
     |       + sri-0.0.1-SNAPSHOT.jar
     |
     + slack_analyser_springboot/
-        + Dockerfile
-        |
-        + target/
-            + slackanalyser-0.0.1-SNAPSHOT.jar
-    
+    |   + Dockerfile
+    |   |
+    |   + target/
+    |       + slackanalyser-0.0.1-SNAPSHOT.jar
+    |
+    + frontend/
+    |   + Dockerfile
+    |   |
+    |   + src/ <all frontend resources>
+    |   |
+    |   + package.json
 ```
+
+### Pre-running instructions
+Due to the inclusion of the React based frontend code please follow the following instruction to ensure that the frontend will run correctly:
+
+#### Edit the docker-compose.yaml file
+![docker-compose](https://raw.githubusercontent.com/CMU-Capstone/TBC-Final-Deliverable/master/Documents/images/docker-compose.PNG)
+Within the docker-compose.yaml file, you will have to change 3 urls to ensure that frontend works.
+```
+REACT_APP_GIT_BASE=http://<server ip>:8082
+REACT_APP_SLACK_BASE=http://<server ip>:8081
+REACT_APP_DEMO_BASE=http://<server ip>:8080
+```
+Replace the `localhost` in the current file with the IP address of the deployment server.
 
 ### Running Services
 Ensure that all prerequisites are in place before moving to the following steps.
@@ -66,7 +85,7 @@ The quickest way to tell if the services are running is to go to their respectiv
 
 All services above will redirect you to their respective Swagger UI documentation pages
 
-* Demo_frontend: `8083`
+* Frontend: `8083`
 This is the demo frontend - built off a open source template [material-dashboard-react](https://github.com/creativetimofficial/material-dashboard-react)
 
 ## Services
